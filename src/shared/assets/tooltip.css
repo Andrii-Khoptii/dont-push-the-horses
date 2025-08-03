@@ -1,0 +1,12 @@
+.v-popper__popper .v-popper__wrapper .v-popper__inner {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.v-popper__popper .v-popper__wrapper .v-popper__arrow-outer {
+  border-color: var(--color-primary);
+}
+
+.v-popper__popper .v-popper__wrapper .v-popper__arrow-inner {
+  border-color: var(--color-primary);
+}

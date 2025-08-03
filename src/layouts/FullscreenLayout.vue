@@ -2,11 +2,11 @@
 </script>
 
 <template>
-  <body class="min-h-screen bg-gradient-racing text-primary-foreground">
+  <div class="flex flex-col min-h-screen bg-gradient-track">
     <main class="min-h-[90vh]">
       <slot />
     </main>
-  </body>
+  </div>
 </template>
 
 <style scoped>

@@ -17,12 +17,13 @@ const props = defineProps({
 });
 
 const variantClasses = {
-  primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
-  secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-  destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-  outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-  ghost: 'hover:bg-accent hover:text-accent-foreground',
-  link: 'text-primary underline-offset-4 hover:underline',
+  primary: 'bg-primary text-primary-foreground hover:enabled:bg-primary/90',
+  secondary: 'bg-secondary text-secondary-foreground hover:enabled:bg-secondary/80',
+  foreground: 'bg-primary-foreground border text-primary hover:enabled:bg-primary-foreground/90',
+  destructive: 'bg-destructive text-destructive-foreground hover:enabled:bg-destructive/90',
+  outline: 'border border-input bg-transparent hover:enabled:bg-accent hover:enabled:text-accent-foreground',
+  ghost: 'hover:enabled:bg-accent hover:enabled:text-accent-foreground',
+  link: 'text-primary underline-offset-4 hover:enabled:underline',
 };
 
 const sizeClasses = {
@@ -32,7 +33,7 @@ const sizeClasses = {
   icon: 'h-10 w-10',
 };
 
-const baseClasses = 'inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50';
+const baseClasses = 'inline-flex cursor-pointer items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50';
 
 const buttonClasses = computed(() => {
   const parts = [
@@ -49,9 +50,7 @@ const buttonClasses = computed(() => {
     :class="buttonClasses"
     :disabled="disabled"
   >
-    <span class="flex items-center justify-center gap-2">
-      <slot />
-    </span>
+    <slot />
   </button>
 </template>
 

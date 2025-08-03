@@ -1,5 +1,5 @@
 <script setup>
-import UIButton from '@ui/UIButton.vue';
+import { UIButton } from '@ui';
 </script>
 
 <template>

@@ -1,25 +1,27 @@
+import gameStore from '@features/game/stores/gameStore';
+import { DEFAULT_BALANCE } from '@utils/constants';
 import { createStore } from 'vuex';
 
 const store = createStore({
   state() {
     return {
-      count: 0,
+      player: {},
     };
   },
-  getters: {
-    double(state) {
-      return state.count * 2;
-    },
-  },
+  getters: {},
   mutations: {
-    increment(state) {
-      state.count++;
+    initPlayer(state, playerData) {
+      state.player = playerData;
     },
   },
   actions: {
-    increment(context) {
-      context.commit('increment');
+    initPlayer(context, playerName) {
+      context.commit('initPlayer', { name: playerName, balance: DEFAULT_BALANCE });
     },
+  },
+
+  modules: {
+    game: gameStore,
   },
 });
 
