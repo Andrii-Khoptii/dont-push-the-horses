@@ -115,19 +115,24 @@ Add this to your VS Code `settings.json`:
 ```
 src/
 ├── features/
-│   └── game/
-│       ├── components/     # Game-specific components
-│       ├── composables/    # Game composition functions
-│       ├── router/         # Game routing
-│       ├── services/       # Game business logic
-│       ├── stores/         # Game state management
-│       └── GamePage.vue    # Main game page
-├── home/                   # Home page feature
+│   ├── game/
+│   │   ├── components/     # Game-specific components
+│   │   ├── composables/    # Game composition functions
+│   │   ├── router/         # Game routing
+│   │   ├── services/       # Game business logic
+│   │   ├── stores/         # Game state management
+│   │   └── GamePage.vue    # Main game page
+│   │
+│   └──home/                # Home page feature
+│       ├── router/         # Home routing
+│       └── HomePage.vue    # Main game page
+│
 ├── layouts/
-│   ├── components/         # Layout components
-│   ├── DefaultLayout.vue   # Default app layout
+│   ├── components/          # Layout components
+│   ├── DefaultLayout.vue    # Default app layout
 │   └── FullscreenLayout.vue # Fullscreen layout
-├── router/                 # Main app routing
+│
+├── router/                  # Main app routing
 └── shared/
     ├── assets/
     │   ├── images/         # Image resources
