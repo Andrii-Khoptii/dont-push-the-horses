@@ -9,6 +9,7 @@ const router = useRouter();
 
 function exit() {
   localStorage.removeItem(LOCAL_STORAGE_KEY);
+  store.dispatch('pauseRace');
   router.push({ name: ROUTE_NAMES.HOME });
 }
 </script>

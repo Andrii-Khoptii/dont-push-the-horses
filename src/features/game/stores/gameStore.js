@@ -66,7 +66,7 @@ const gameStore = {
         if (currentProgram.raceFinished) {
           const horseWithBet = currentProgram.horses.find(({ bet }) => bet);
 
-          if (horseWithBet) {
+          if (horseWithBet && horseWithBet.place === 1) {
             const newBalance = rootState.player.balance + DEFAULT_BET * horseWithBet.coef;
             dispatch('updateBalance', newBalance, { root: true });
           }
@@ -81,7 +81,7 @@ const gameStore = {
         }
 
         commit('setCurrentProgram', currentProgram);
-      }, 100);
+      }, 50);
 
       commit('setRaceInterval', interval);
     },
