@@ -5,7 +5,7 @@ import router from '@/router/router';
 import store from '@/shared/store/store';
 import App from './App.vue';
 
-import '@shared/assets/style.css';
+import '@shared/assets/styles/main.css';
 import 'floating-vue/dist/style.css';
 
 const app = createApp(App);

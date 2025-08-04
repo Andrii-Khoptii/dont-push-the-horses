@@ -1,5 +1,16 @@
 <script setup>
 import { UIButton } from '@ui';
+import { LOCAL_STORAGE_KEY, ROUTE_NAMES } from '@utils/constants';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
+
+const store = useStore();
+const router = useRouter();
+
+function exit() {
+  localStorage.removeItem(LOCAL_STORAGE_KEY);
+  router.push({ name: ROUTE_NAMES.HOME });
+}
 </script>
 
 <template>
@@ -10,10 +21,11 @@ import { UIButton } from '@ui';
       <div class="flex items-center space-x-2">
         <span class="font-bold text-xl">Don't push the Horses</span>
       </div>
-      <div class="flex items-center space-x-2">
-        <UIButton>Generate Program</UIButton>
-        <UIButton variant="secondary">
-          Start / Pause
+      <div v-if="store.state.player" class="flex gap-4 items-center">
+        <span>{{ store.state.player.name }}'s balance: ${{ store.state.player.balance }}</span>
+
+        <UIButton variant="foreground" size="sm" @click="exit">
+          Exit
         </UIButton>
       </div>
     </div>
