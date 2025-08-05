@@ -47,6 +47,7 @@ const buttonClasses = computed(() => {
 
 <template>
   <button
+    data-testid="ui-button"
     :class="buttonClasses"
     :disabled="disabled"
   >

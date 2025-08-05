@@ -74,7 +74,7 @@ describe('component UITableTh', () => {
         props: { column: mockColumn },
       });
 
-      const th = wrapper.find('th');
+      const th = wrapper.find('[data-testid="ui-table-th"]');
       expect(th.exists()).toBe(true);
       expect(th.classes()).toContain('h-12');
       expect(th.classes()).toContain('p-2');
@@ -98,7 +98,7 @@ describe('component UITableTh', () => {
         props: { column: mockColumn },
       });
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.exists()).toBe(true);
       expect(flexContainer.classes()).toContain('gap-1');
       expect(flexContainer.classes()).toContain('items-center');
@@ -111,7 +111,7 @@ describe('component UITableTh', () => {
         props: { column: mockColumn },
       });
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.classes()).toContain('justify-start');
     });
 
@@ -121,7 +121,7 @@ describe('component UITableTh', () => {
         props: { column: columnWithCenterAlign },
       });
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.classes()).toContain('justify-center');
     });
 
@@ -131,7 +131,7 @@ describe('component UITableTh', () => {
         props: { column: columnWithRightAlign },
       });
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.classes()).toContain('justify-end');
     });
 
@@ -141,7 +141,7 @@ describe('component UITableTh', () => {
         props: { column: columnWithUnknownAlign },
       });
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.classes()).toContain('justify-start');
     });
   });
@@ -271,7 +271,7 @@ describe('component UITableTh', () => {
         props: { column: columnWithoutAlign },
       });
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.classes()).toContain('justify-start');
     });
 
@@ -304,7 +304,7 @@ describe('component UITableTh', () => {
 
       expect(wrapper.text()).toContain('Status');
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.classes()).toContain('justify-center');
 
       const sortByComponent = wrapper.findComponent({ name: 'UITableSortBy' });
@@ -322,7 +322,7 @@ describe('component UITableTh', () => {
 
       expect(wrapper.text()).toContain('Email');
 
-      const flexContainer = wrapper.find('div.flex');
+      const flexContainer = wrapper.find('[data-testid="ui-table-th-content"]');
       expect(flexContainer.classes()).toContain('justify-end');
 
       const sortByComponent = wrapper.findComponent({ name: 'UITableSortBy' });

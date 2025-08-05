@@ -54,8 +54,16 @@ describe('feature GameProgram', () => {
       mockStore.state.gameStore.programList = mockProgramList;
       wrapper = mount(GameProgram);
 
-      expect(wrapper.find('.mock-ui-card').exists()).toBe(true);
-      expect(wrapper.find('.grid.grid-cols-1.lg\\:grid-cols-2.gap-4').exists()).toBe(true);
+      const card = wrapper.findComponent({ name: 'UICard' });
+      expect(card.classes()).toContain('mock-ui-card');
+      expect(card.classes()).toContain('w-full');
+      expect(card.classes()).toContain('max-w-full');
+
+      const grid = wrapper.find('[data-testid="program-grid"]');
+      expect(grid.classes()).toContain('grid');
+      expect(grid.classes()).toContain('grid-cols-1');
+      expect(grid.classes()).toContain('lg:grid-cols-2');
+      expect(grid.classes()).toContain('gap-4');
     });
 
     it('should display "Race Program" header', () => {
@@ -105,7 +113,7 @@ describe('feature GameProgram', () => {
       mockStore.state.gameStore.programList = [];
       wrapper = mount(GameProgram);
 
-      const programInfo = wrapper.findAll('.bg-primary.text-primary-foreground');
+      const programInfo = wrapper.findAll('[data-testid="program-info"]');
       expect(programInfo).toHaveLength(0);
     });
   });
@@ -131,7 +139,7 @@ describe('feature GameProgram', () => {
       mockStore.state.gameStore.programList = mockProgramList;
       wrapper = mount(GameProgram);
 
-      const grid = wrapper.find('.grid.grid-cols-1.lg\\:grid-cols-2.gap-4');
+      const grid = wrapper.find('[data-testid="program-grid"]');
       expect(grid.classes()).toContain('grid');
       expect(grid.classes()).toContain('grid-cols-1');
       expect(grid.classes()).toContain('lg:grid-cols-2');
@@ -150,7 +158,7 @@ describe('feature GameProgram', () => {
       mockStore.state.gameStore.programList = mockProgramList;
       wrapper = mount(GameProgram);
 
-      const programInfo = wrapper.findAll('.bg-primary.text-primary-foreground.px-3.py-1');
+      const programInfo = wrapper.findAll('[data-testid="program-info"]');
       expect(programInfo).toHaveLength(2);
     });
 
@@ -172,7 +180,7 @@ describe('feature GameProgram', () => {
       mockStore.state.gameStore.programList = [incompleteProgram];
       wrapper = mount(GameProgram);
 
-      const programInfo = wrapper.find('.bg-primary.text-primary-foreground');
+      const programInfo = wrapper.find('[data-testid="program-info"]');
       expect(programInfo.text()).toContain('st Lap m');
     });
 

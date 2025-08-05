@@ -60,7 +60,7 @@ describe('component UITableTd', () => {
         },
       });
 
-      const span = wrapper.find('span.font-bold');
+      const span = wrapper.find('[data-testid="ui-table-td"]').find('span.font-bold');
       expect(span.exists()).toBe(true);
       expect(span.text()).toBe('Bold text');
     });
@@ -212,7 +212,7 @@ describe('component UITableTd', () => {
         },
       });
 
-      const div = wrapper.find('div.flex');
+      const div = wrapper.find('[data-testid="ui-table-td"]').find('div.flex');
       expect(div.exists()).toBe(true);
       expect(div.classes()).toContain('flex');
       expect(div.classes()).toContain('items-center');
@@ -230,7 +230,7 @@ describe('component UITableTd', () => {
         },
       });
 
-      const input = wrapper.find('input[type="checkbox"]');
+      const input = wrapper.find('[data-testid="ui-table-td"]').find('input[type="checkbox"]');
       expect(input.exists()).toBe(true);
 
       const td = wrapper.find('td');
@@ -248,7 +248,7 @@ describe('component UITableTd', () => {
         },
       });
 
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-table-td"]').find('button');
       expect(button.exists()).toBe(true);
       expect(button.text()).toBe('Edit');
       expect(button.classes()).toContain('bg-blue-500');
@@ -292,7 +292,7 @@ describe('component UITableTd', () => {
         },
       });
 
-      const span = wrapper.find('span[aria-label="Status"]');
+      const span = wrapper.find('[data-testid="ui-table-td"]').find('span[aria-label="Status"]');
       expect(span.exists()).toBe(true);
       expect(span.text()).toBe('Active');
     });

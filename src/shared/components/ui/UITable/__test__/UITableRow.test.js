@@ -7,14 +7,14 @@ describe('component UITableRow', () => {
     it('should render tr element', () => {
       const wrapper = mount(UITableRow);
 
-      const tr = wrapper.find('tr');
+      const tr = wrapper.find('[data-testid="ui-table-row"]');
       expect(tr.exists()).toBe(true);
     });
 
     it('should have correct CSS classes', () => {
       const wrapper = mount(UITableRow);
 
-      const tr = wrapper.find('tr');
+      const tr = wrapper.find('[data-testid="ui-table-row"]');
       expect(tr.classes()).toContain('border-b');
       expect(tr.classes()).toContain('transition-colors');
       expect(tr.classes()).toContain('hover:bg-muted/50');
@@ -74,7 +74,7 @@ describe('component UITableRow', () => {
     it('should apply hover styles correctly', () => {
       const wrapper = mount(UITableRow);
 
-      const tr = wrapper.find('tr');
+      const tr = wrapper.find('[data-testid="ui-table-row"]');
       const classes = tr.classes();
 
       expect(classes).toContain('hover:bg-muted/50');
@@ -83,14 +83,14 @@ describe('component UITableRow', () => {
     it('should apply transition classes', () => {
       const wrapper = mount(UITableRow);
 
-      const tr = wrapper.find('tr');
+      const tr = wrapper.find('[data-testid="ui-table-row"]');
       expect(tr.classes()).toContain('transition-colors');
     });
 
     it('should apply border classes', () => {
       const wrapper = mount(UITableRow);
 
-      const tr = wrapper.find('tr');
+      const tr = wrapper.find('[data-testid="ui-table-row"]');
       expect(tr.classes()).toContain('border-b');
     });
   });

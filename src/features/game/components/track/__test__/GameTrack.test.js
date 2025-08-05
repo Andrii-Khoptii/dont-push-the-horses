@@ -40,19 +40,24 @@ describe('feature GameTrack', () => {
 
   describe('rendering', () => {
     it('should render the component with correct structure', () => {
-      mockStore.state.gameStore.currentProgram = mockCurrentProgram;
       wrapper = mount(GameTrack);
 
-      expect(wrapper.find('.relative').exists()).toBe(true);
-      expect(wrapper.find('.bg-gradient-to-r').exists()).toBe(true);
-      expect(wrapper.find('.rounded-lg').exists()).toBe(true);
+      const container = wrapper.find('[data-testid="track-container"]');
+      expect(container.classes()).toContain('relative');
+      expect(container.classes()).toContain('bg-gradient-to-r');
+      expect(container.classes()).toContain('from-primary/20');
+      expect(container.classes()).toContain('to-accent/20');
+      expect(container.classes()).toContain('rounded-lg');
+      expect(container.classes()).toContain('p-4');
+      expect(container.classes()).toContain('shadow-sm');
+      expect(container.classes()).toContain('border');
     });
 
     it('should display current program information when available', () => {
       mockStore.state.gameStore.currentProgram = mockCurrentProgram;
       wrapper = mount(GameTrack);
 
-      const programInfo = wrapper.find('.bg-primary');
+      const programInfo = wrapper.find('[data-testid="track-program-info"]');
       expect(programInfo.exists()).toBe(true);
       expect(programInfo.text()).toContain('1st Lap 1000m');
     });
@@ -82,7 +87,7 @@ describe('feature GameTrack', () => {
       mockStore.state.gameStore.currentProgram = null;
       wrapper = mount(GameTrack);
 
-      const programInfo = wrapper.find('.bg-primary');
+      const programInfo = wrapper.find('[data-testid="track-program-info"]');
       expect(programInfo.exists()).toBe(false);
     });
 
@@ -116,7 +121,7 @@ describe('feature GameTrack', () => {
       mockStore.state.gameStore.currentProgram = mockCurrentProgram;
       wrapper = mount(GameTrack);
 
-      const container = wrapper.find('.relative');
+      const container = wrapper.find('[data-testid="track-container"]');
       expect(container.classes()).toContain('bg-gradient-to-r');
       expect(container.classes()).toContain('from-primary/20');
       expect(container.classes()).toContain('to-accent/20');
@@ -130,7 +135,7 @@ describe('feature GameTrack', () => {
       mockStore.state.gameStore.currentProgram = mockCurrentProgram;
       wrapper = mount(GameTrack);
 
-      const programInfo = wrapper.find('.bg-primary');
+      const programInfo = wrapper.find('[data-testid="track-program-info"]');
       expect(programInfo.classes()).toContain('text-primary-foreground');
       expect(programInfo.classes()).toContain('px-3');
       expect(programInfo.classes()).toContain('py-1');
@@ -142,7 +147,7 @@ describe('feature GameTrack', () => {
       mockStore.state.gameStore.currentProgram = mockCurrentProgram;
       wrapper = mount(GameTrack);
 
-      const lapsContainer = wrapper.find('.flex.flex-col.gap-4');
+      const lapsContainer = wrapper.find('[data-testid="track-laps-container"]');
       expect(lapsContainer.exists()).toBe(true);
     });
   });
@@ -169,7 +174,7 @@ describe('feature GameTrack', () => {
       mockStore.state.gameStore.currentProgram = incompleteProgram;
       wrapper = mount(GameTrack);
 
-      const programInfo = wrapper.find('.bg-primary');
+      const programInfo = wrapper.find('[data-testid="track-program-info"]');
       expect(programInfo.text()).toContain('st Lap m');
     });
   });

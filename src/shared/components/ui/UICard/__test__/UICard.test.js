@@ -13,8 +13,16 @@ describe('component UICard', () => {
   describe('rendering', () => {
     it('renders card container', () => {
       const wrapper = createWrapper();
-      const card = wrapper.find('.rounded-lg');
-      expect(card.exists()).toBe(true);
+      const card = wrapper.find('[data-testid="ui-card"]');
+      expect(card.classes()).toContain('rounded-lg');
+      expect(card.classes()).toContain('border');
+      expect(card.classes()).toContain('text-card-foreground');
+      expect(card.classes()).toContain('shadow-sm');
+      expect(card.classes()).toContain('max-w-2xl');
+      expect(card.classes()).toContain('mx-auto');
+      expect(card.classes()).toContain('bg-background/95');
+      expect(card.classes()).toContain('backdrop-blur');
+      expect(card.classes()).toContain('text-center');
     });
 
     it('renders default slot content', () => {
@@ -49,7 +57,7 @@ describe('component UICard', () => {
   describe('css classes', () => {
     it('applies base card classes', () => {
       const wrapper = createWrapper();
-      const card = wrapper.find('.rounded-lg');
+      const card = wrapper.find('[data-testid="ui-card"]');
       expect(card.classes()).toContain('rounded-lg');
       expect(card.classes()).toContain('border');
       expect(card.classes()).toContain('text-card-foreground');
@@ -63,14 +71,14 @@ describe('component UICard', () => {
 
     it('applies padding classes when padding prop is true', () => {
       const wrapper = createWrapper({ padding: true });
-      const content = wrapper.find('.overflow-auto');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
       expect(content.classes()).toContain('p-6');
       expect(content.classes()).toContain('md:p-12');
     });
 
     it('does not apply padding classes when padding prop is false', () => {
       const wrapper = createWrapper({ padding: false });
-      const content = wrapper.find('.overflow-auto');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
       expect(content.classes()).not.toContain('p-6');
       expect(content.classes()).not.toContain('md:p-12');
     });
@@ -81,7 +89,7 @@ describe('component UICard', () => {
       const wrapper = createWrapper({}, {
         header: 'Card Header',
       });
-      const header = wrapper.find('.bg-gradient-winner');
+      const header = wrapper.find('[data-testid="ui-card-header"]');
       expect(header.exists()).toBe(true);
       expect(header.classes()).toContain('p-6');
     });
@@ -90,7 +98,7 @@ describe('component UICard', () => {
       const wrapper = createWrapper({}, {
         default: 'Card content',
       });
-      const header = wrapper.find('.bg-gradient-winner');
+      const header = wrapper.find('[data-testid="ui-card-header"]');
       expect(header.exists()).toBe(false);
     });
 
@@ -98,7 +106,7 @@ describe('component UICard', () => {
       const wrapper = createWrapper({}, {
         header: 'Card Header',
       });
-      const headerTitle = wrapper.find('h3');
+      const headerTitle = wrapper.find('[data-testid="ui-card-header-title"]');
       expect(headerTitle.exists()).toBe(true);
       expect(headerTitle.classes()).toContain('text-2xl');
       expect(headerTitle.classes()).toContain('font-semibold');
@@ -111,7 +119,7 @@ describe('component UICard', () => {
   describe('content section', () => {
     it('renders content section with overflow-auto class', () => {
       const wrapper = createWrapper();
-      const content = wrapper.find('.overflow-auto');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
       expect(content.exists()).toBe(true);
     });
 
@@ -119,7 +127,7 @@ describe('component UICard', () => {
       const wrapper = createWrapper({}, {
         default: 'Card content',
       });
-      const content = wrapper.find('.overflow-auto');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
       expect(content.text()).toContain('Card content');
     });
   });
@@ -142,7 +150,7 @@ describe('component UICard', () => {
 
       await wrapper.vm.$nextTick();
 
-      const content = wrapper.find('.overflow-auto');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
       const expectedHeight = `calc(100% - ${mockOffsetHeight}px)`;
       expect(content.attributes('style')).toContain(expectedHeight);
     });
@@ -152,7 +160,7 @@ describe('component UICard', () => {
         default: 'Content',
       });
 
-      const content = wrapper.find('.overflow-auto');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
       expect(content.attributes('style')).toContain('height: 100%;');
     });
   });
@@ -164,9 +172,9 @@ describe('component UICard', () => {
         default: 'Content',
       });
 
-      const card = wrapper.find('.rounded-lg');
-      const header = wrapper.find('h3');
-      const content = wrapper.find('.overflow-auto');
+      const card = wrapper.find('[data-testid="ui-card"]');
+      const header = wrapper.find('[data-testid="ui-card-header-title"]');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
 
       expect(card.exists()).toBe(true);
       expect(header.exists()).toBe(true);
@@ -177,7 +185,7 @@ describe('component UICard', () => {
   describe('responsive behavior', () => {
     it('applies responsive padding classes', () => {
       const wrapper = createWrapper({ padding: true });
-      const content = wrapper.find('.overflow-auto');
+      const content = wrapper.find('[data-testid="ui-card-content"]');
       expect(content.classes()).toContain('p-6');
       expect(content.classes()).toContain('md:p-12');
     });

@@ -20,10 +20,10 @@ function startGame() {
 
 <template>
   <UICard class="mt-32 max-w-[90%] md:max-w-2xl">
-    <h1 class="text-2xl md:text-4xl font-bold text-primary mb-6 tracking-tight">
+    <h1 data-testid="home-page-title" class="text-2xl md:text-4xl font-bold text-primary mb-6 tracking-tight">
       Don't Push the Horses
     </h1>
-    <p class="text-md md:text-xl text-muted-foreground mb-8 lg:max-w-lg mx-auto">
+    <p data-testid="home-page-description" class="text-md md:text-xl text-muted-foreground mb-8 lg:max-w-lg mx-auto">
       Experience the thrill of the track with our horse racing simulation
     </p>
     <UIInput
@@ -31,7 +31,7 @@ function startGame() {
       placeholder="Enter your name"
       class="w-[200px] md:w-sm mx-auto text-center text-lg"
     />
-    <div class="flex space-x-2 w-[200px] md:w-sm mt-8 mx-auto">
+    <div data-testid="home-page-button-container" class="flex space-x-2 w-[200px] md:w-sm mt-8 mx-auto">
       <UIButton class="w-full" variant="primary" :disabled="!playerName" @click="startGame()">
         Start
       </UIButton>

@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <UITableRow>
+  <UITableRow data-testid="horse-list-table-row">
     <UITableTd>
       {{ row.id }}
     </UITableTd>
@@ -21,7 +21,7 @@ defineProps({
       {{ row.condition }}
     </UITableTd>
     <UITableTd align="right">
-      <span :style="`color: ${row.color.value};`">
+      <span data-testid="horse-color-span" :style="`color: ${row.color.value};`">
         {{ row.color.name }}
       </span>
     </UITableTd>

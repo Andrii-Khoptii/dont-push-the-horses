@@ -45,12 +45,13 @@ const placeClasses = computed(() => {
 </script>
 
 <template>
-  <div class="flex items-center h-12 border-b border-dashed border-muted-foreground/30">
-    <div class="w-8 h-8 text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold mr-4" :style="`background: ${horse.color.value}`">
+  <div data-testid="track-lap-container" class="flex items-center h-12 border-b border-dashed border-muted-foreground/30">
+    <div data-testid="horse-id-circle" class="w-8 h-8 text-primary-foreground rounded-full flex items-center justify-center text-sm font-bold mr-4" :style="`background: ${horse.color.value}`">
       {{ horse.id }}
     </div>
-    <div class="flex-1 relative rounded-full h-2" :style="`background: ${horse.color.value}`">
+    <div data-testid="progress-bar" class="flex-1 relative rounded-full h-2" :style="`background: ${horse.color.value}`">
       <div
+        data-testid="horse-image"
         class="absolute transform -translate-y-3/4 transition-all duration-100 z-10"
         :style="`left: ${Math.min(98, distanceGone)}%`"
       >
@@ -58,11 +59,11 @@ const placeClasses = computed(() => {
           <img :src="horseImage" alt="horse">
         </div>
       </div>
-      <div class="absolute -right-3 -translate-y-3/4">
+      <div data-testid="finish-line" class="absolute -right-3 -translate-y-3/4">
         🏁
       </div>
     </div>
-    <div :class="placeClasses" class="w-8 h-8 text-primary-foreground shadow-md rounded-full flex items-center justify-center text-sm font-bold ml-4">
+    <div data-testid="place-circle" :class="placeClasses" class="w-8 h-8 text-primary-foreground shadow-md rounded-full flex items-center justify-center text-sm font-bold ml-4">
       {{ horse.place }}
     </div>
   </div>

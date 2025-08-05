@@ -69,9 +69,9 @@ function placeBet() {
 </script>
 
 <template>
-  <UITableRow>
+  <UITableRow data-testid="program-table-row">
     <UITableTd class="h-20">
-      <span :style="`color: ${row.color.value}`">{{ row.id }}</span>
+      <span data-testid="horse-id-span" :style="`color: ${row.color.value}`">{{ row.id }}</span>
     </UITableTd>
     <UITableTd class="h-20">
       <span :style="`color: ${row.color.value}`">{{ row.name }}</span>
@@ -80,7 +80,7 @@ function placeBet() {
       {{ row.coef }}
     </UITableTd>
     <UITableTd class="h-20" align="center">
-      <UIButton v-if="!hideBets" variant="primary" size="sm" @click="placeBet">
+      <UIButton data-testid="bet-button" v-if="!hideBets" variant="primary" size="sm" @click="placeBet">
         Bet
       </UIButton>
       <span v-if="row.bet" :class="betStatus">
@@ -91,7 +91,7 @@ function placeBet() {
       {{ row.runningTime ? secondsToHHMMSS(row.runningTime) : '-' }}
     </UITableTd>
     <UITableTd align="center" class="w-[125px] h-20">
-      <div v-if="[1, 2, 3].includes(row.place)" :class="placeClasses" class="w-8 h-8 mx-auto text-primary-foreground shadow-md rounded-full flex items-center justify-center text-sm font-bold">
+      <div data-testid="place-circle" v-if="[1, 2, 3].includes(row.place)" :class="placeClasses" class="w-8 h-8 mx-auto text-primary-foreground shadow-md rounded-full flex items-center justify-center text-sm font-bold">
         {{ row.place }}
       </div>
       <template v-else>

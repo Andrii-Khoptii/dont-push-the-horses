@@ -12,12 +12,22 @@ describe('component UIInput', () => {
   describe('rendering', () => {
     it('renders input element', () => {
       const wrapper = createWrapper();
-      expect(wrapper.find('input').exists()).toBe(true);
+      const input = wrapper.find('[data-testid="ui-input"]');
+      expect(input.classes()).toContain('flex');
+      expect(input.classes()).toContain('w-full');
+      expect(input.classes()).toContain('h-10');
+      expect(input.classes()).toContain('px-3');
+      expect(input.classes()).toContain('py-2');
+      expect(input.classes()).toContain('rounded-md');
+      expect(input.classes()).toContain('border');
+      expect(input.classes()).toContain('border-input');
+      expect(input.classes()).toContain('bg-background');
+      expect(input.classes()).toContain('text-base');
     });
 
     it('renders input with correct type', () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.attributes('type')).toBe('text');
     });
   });
@@ -43,7 +53,7 @@ describe('component UIInput', () => {
   describe('cSS classes', () => {
     it('applies base input classes', () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.classes()).toContain('flex');
       expect(input.classes()).toContain('w-full');
       expect(input.classes()).toContain('h-10');
@@ -66,13 +76,13 @@ describe('component UIInput', () => {
   describe('disabled state', () => {
     it('applies disabled attribute when disabled prop is true', () => {
       const wrapper = createWrapper({ disabled: true });
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.attributes('disabled')).toBeDefined();
     });
 
     it('does not apply disabled attribute when disabled prop is false', () => {
       const wrapper = createWrapper({ disabled: false });
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.attributes('disabled')).toBeUndefined();
     });
   });
@@ -80,13 +90,13 @@ describe('component UIInput', () => {
   describe('placeholder', () => {
     it('applies placeholder attribute when provided', () => {
       const wrapper = createWrapper({ placeholder: 'Enter your name' });
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.attributes('placeholder')).toBe('Enter your name');
     });
 
     it('applies empty placeholder by default', () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.attributes('placeholder')).toBe('');
     });
   });
@@ -94,7 +104,7 @@ describe('component UIInput', () => {
   describe('v-model functionality', () => {
     it('updates model value when input changes', async () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
 
       await input.setValue('test value');
 
@@ -103,7 +113,7 @@ describe('component UIInput', () => {
 
     it('emits update:modelValue when input changes', async () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
 
       await input.setValue('new value');
 
@@ -117,7 +127,7 @@ describe('component UIInput', () => {
       wrapper.vm.model = 'initial value';
       await wrapper.vm.$nextTick();
 
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.element.value).toBe('initial value');
     });
   });
@@ -125,7 +135,7 @@ describe('component UIInput', () => {
   describe('events', () => {
     it('emits input event when typing', async () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
 
       await input.trigger('input');
 
@@ -134,7 +144,7 @@ describe('component UIInput', () => {
 
     it('emits focus event when focused', async () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
 
       await input.trigger('focus');
 
@@ -143,7 +153,7 @@ describe('component UIInput', () => {
 
     it('emits blur event when blurred', async () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
 
       await input.trigger('blur');
 
@@ -154,7 +164,7 @@ describe('component UIInput', () => {
   describe('responsive behavior', () => {
     it('applies responsive text size classes', () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.classes()).toContain('text-base');
       expect(input.classes()).toContain('md:text-sm');
     });
@@ -163,20 +173,20 @@ describe('component UIInput', () => {
   describe('styling behavior', () => {
     it('applies focus styles', () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.classes()).toContain('focus:border-accent-foreground');
     });
 
     it('applies disabled styles', () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.classes()).toContain('disabled:cursor-not-allowed');
       expect(input.classes()).toContain('disabled:opacity-50');
     });
 
     it('applies placeholder styles', () => {
       const wrapper = createWrapper();
-      const input = wrapper.find('input');
+      const input = wrapper.find('[data-testid="ui-input"]');
       expect(input.classes()).toContain('placeholder:text-muted-foreground');
     });
   });

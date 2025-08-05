@@ -33,8 +33,8 @@ function fieldDirection(fieldName, sort) {
 </script>
 
 <template>
-  <th class="h-12 p-2 md:p-4 text-left align-middle font-medium text-primary">
-    <div class="flex gap-1 items-center" :class="textAlignment">
+  <th data-testid="ui-table-th" class="h-12 p-2 md:p-4 text-left align-middle font-medium text-primary">
+    <div data-testid="ui-table-th-content" class="flex gap-1 items-center" :class="textAlignment">
       {{ column.title }}
 
       <UITableSortBy

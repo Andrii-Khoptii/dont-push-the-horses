@@ -29,8 +29,11 @@ describe('feature GameHorseList', () => {
     it('should render the component with correct structure', () => {
       wrapper = mount(GameHorseList);
 
-      expect(wrapper.find('.mock-ui-card').exists()).toBe(true);
-      expect(wrapper.find('.w-full').exists()).toBe(true);
+      const card = wrapper.find('[data-testid="horse-list-card"]');
+      expect(card.classes()).toContain('w-full');
+
+      const container = wrapper.find('[data-testid="horse-list-table-container"]');
+      expect(container.exists()).toBe(true);
     });
 
     it('should display "Horse List (1-20)" header', () => {
@@ -58,8 +61,8 @@ describe('feature GameHorseList', () => {
     it('should have correct CSS classes for styling', () => {
       wrapper = mount(GameHorseList);
 
-      const container = wrapper.find('.w-full');
-      expect(container.classes()).toContain('w-full');
+      const container = wrapper.find('[data-testid="horse-list-table-container"]');
+      expect(container.exists()).toBe(true);
     });
 
     it('should have correct UICard structure', () => {
@@ -73,14 +76,14 @@ describe('feature GameHorseList', () => {
     it('should have header slot content', () => {
       wrapper = mount(GameHorseList);
 
-      const headerContent = wrapper.find('.mock-ui-card');
+      const headerContent = wrapper.find('[data-testid="horse-list-card"]');
       expect(headerContent.text()).toContain('Horse List (1-20)');
     });
 
     it('should have default slot content', () => {
       wrapper = mount(GameHorseList);
 
-      const defaultContent = wrapper.find('.mock-horse-list-table');
+      const defaultContent = wrapper.find('[data-testid="horse-list-table-container"]');
       expect(defaultContent.exists()).toBe(true);
       expect(defaultContent.text()).toBe('Horse List Table');
     });
@@ -111,21 +114,21 @@ describe('feature GameHorseList', () => {
     it('should have correct container styling', () => {
       wrapper = mount(GameHorseList);
 
-      const container = wrapper.find('.w-full');
-      expect(container.classes()).toContain('w-full');
+      const container = wrapper.find('[data-testid="horse-list-table-container"]');
+      expect(container.exists()).toBe(true);
     });
 
     it('should have proper card structure', () => {
       wrapper = mount(GameHorseList);
 
-      const card = wrapper.find('.mock-ui-card');
+      const card = wrapper.find('[data-testid="horse-list-card"]');
       expect(card.exists()).toBe(true);
     });
 
     it('should have header and content areas', () => {
       wrapper = mount(GameHorseList);
 
-      const card = wrapper.find('.mock-ui-card');
+      const card = wrapper.find('[data-testid="horse-list-card"]');
       expect(card.text()).toContain('Horse List (1-20)');
       expect(card.text()).toContain('Horse List Table');
     });

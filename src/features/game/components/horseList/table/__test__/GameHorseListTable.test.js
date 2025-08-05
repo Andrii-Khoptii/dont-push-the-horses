@@ -55,7 +55,7 @@ describe('feature GameHorseListTable', () => {
       mockStore.state.gameStore.horseList = mockHorseList;
       wrapper = mount(GameHorseListTable);
 
-      expect(wrapper.find('.mock-ui-table').exists()).toBe(true);
+      expect(wrapper.findComponent({ name: 'UITable' }).exists()).toBe(true);
     });
 
     it('should render GameHorseListTableRow components for each horse', () => {

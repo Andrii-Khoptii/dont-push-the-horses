@@ -39,9 +39,13 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      expect(wrapper.find('.flex.items-center.h-12').exists()).toBe(true);
-      expect(wrapper.find('.border-b.border-dashed').exists()).toBe(true);
-      expect(wrapper.find('[class*="border-muted-foreground"]').exists()).toBe(true);
+      const container = wrapper.find('[data-testid="track-lap-container"]');
+      expect(container.classes()).toContain('flex');
+      expect(container.classes()).toContain('items-center');
+      expect(container.classes()).toContain('h-12');
+      expect(container.classes()).toContain('border-b');
+      expect(container.classes()).toContain('border-dashed');
+      expect(container.classes()).toContain('border-muted-foreground/30');
     });
 
     it('should display horse ID in the colored circle', () => {
@@ -49,7 +53,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const horseIdCircle = wrapper.find('.w-8.h-8.text-primary-foreground.rounded-full');
+      const horseIdCircle = wrapper.find('[data-testid="horse-id-circle"]');
       expect(horseIdCircle.exists()).toBe(true);
       expect(horseIdCircle.text()).toBe('1');
     });
@@ -59,7 +63,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const horseIdCircle = wrapper.find('.w-8.h-8.text-primary-foreground.rounded-full');
+      const horseIdCircle = wrapper.find('[data-testid="horse-id-circle"]');
       expect(horseIdCircle.attributes('style')).toContain('background: rgb(255, 0, 0)');
     });
 
@@ -68,7 +72,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const progressBar = wrapper.find('.flex-1.relative.rounded-full.h-2');
+      const progressBar = wrapper.find('[data-testid="progress-bar"]');
       expect(progressBar.exists()).toBe(true);
       expect(progressBar.attributes('style')).toContain('background: rgb(255, 0, 0)');
     });
@@ -78,7 +82,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const finishLine = wrapper.find('[class*="-right-3"]');
+      const finishLine = wrapper.find('[data-testid="finish-line"]');
       expect(finishLine.exists()).toBe(true);
       expect(finishLine.text()).toBe('🏁');
     });
@@ -236,7 +240,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const horseImage = wrapper.find('[class*="absolute"][class*="transform"]');
+      const horseImage = wrapper.find('[data-testid="horse-image"]');
       expect(horseImage.exists()).toBe(true);
       expect(horseImage.attributes('style')).toContain('left: 50%');
     });
@@ -250,7 +254,7 @@ describe('feature gameTrackLap', () => {
         },
       });
 
-      const horseImage = wrapper.find('[class*="absolute"][class*="transform"]');
+      const horseImage = wrapper.find('[data-testid="horse-image"]');
       expect(horseImage.attributes('style')).toContain('left: 98%');
     });
 
@@ -270,7 +274,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const horseImage = wrapper.find('[class*="absolute"][class*="transform"]');
+      const horseImage = wrapper.find('[data-testid="horse-image"]');
       expect(horseImage.classes()).toContain('transition-all');
       expect(horseImage.classes()).toContain('duration-100');
       expect(horseImage.classes()).toContain('z-10');
@@ -286,7 +290,7 @@ describe('feature gameTrackLap', () => {
         },
       });
 
-      const placeCircle = wrapper.find('.w-8.h-8.text-primary-foreground.shadow-md.rounded-full');
+      const placeCircle = wrapper.find('[data-testid="place-circle"]');
       expect(placeCircle.exists()).toBe(true);
       expect(placeCircle.text()).toBe('1');
       expect(placeCircle.classes()).toContain('bg-yellow-400');
@@ -297,7 +301,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const placeCircle = wrapper.find('.w-8.h-8.text-primary-foreground.shadow-md.rounded-full');
+      const placeCircle = wrapper.find('[data-testid="place-circle"]');
       expect(placeCircle.exists()).toBe(true);
       expect(placeCircle.classes()).toContain('invisible');
     });
@@ -318,7 +322,7 @@ describe('feature gameTrackLap', () => {
           },
         });
 
-        const placeCircle = wrapper.find('.w-8.h-8.text-primary-foreground.shadow-md.rounded-full');
+        const placeCircle = wrapper.find('[data-testid="place-circle"]');
         expect(placeCircle.classes()).toContain(expectedClass);
       });
     });
@@ -378,7 +382,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const container = wrapper.find('.flex.items-center.h-12');
+      const container = wrapper.find('[data-testid="track-lap-container"]');
       expect(container.classes()).toContain('flex');
       expect(container.classes()).toContain('items-center');
       expect(container.classes()).toContain('h-12');
@@ -389,7 +393,7 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const border = wrapper.find('[class*="border-b"][class*="border-dashed"]');
+      const border = wrapper.find('[data-testid="track-lap-container"]');
       expect(border.classes()).toContain('border-b');
       expect(border.classes()).toContain('border-dashed');
       expect(border.classes()).toContain('border-muted-foreground/30');
@@ -400,10 +404,10 @@ describe('feature gameTrackLap', () => {
         props: defaultProps,
       });
 
-      const horseIdCircle = wrapper.find('.w-8.h-8.text-primary-foreground.rounded-full');
+      const horseIdCircle = wrapper.find('[data-testid="horse-id-circle"]');
       expect(horseIdCircle.classes()).toContain('mr-4');
 
-      const placeCircle = wrapper.find('.w-8.h-8.text-primary-foreground.shadow-md.rounded-full');
+      const placeCircle = wrapper.find('[data-testid="place-circle"]');
       expect(placeCircle.classes()).toContain('ml-4');
     });
   });

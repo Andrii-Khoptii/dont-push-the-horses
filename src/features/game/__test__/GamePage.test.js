@@ -69,7 +69,7 @@ describe('feature GamePage', () => {
     it('should render the component with correct structure', () => {
       wrapper = mount(GamePage);
 
-      expect(wrapper.find('.container.h-full.mx-auto.px-4.py-6.flex.flex-col.gap-4').exists()).toBe(true);
+      expect(wrapper.find('[data-testid="game-page-container"]').exists()).toBe(true);
     });
 
     it('should render GameHorseList component', () => {
@@ -277,7 +277,7 @@ describe('feature GamePage', () => {
       mockStore.state.gameStore.currentProgram = mockCurrentProgram;
       wrapper = mount(GamePage);
 
-      const actionButtons = wrapper.find('.flex.justify-end.items-center.gap-4');
+      const actionButtons = wrapper.find('[data-testid="game-action-btns"]');
       expect(actionButtons.exists()).toBe(true);
     });
 
@@ -285,7 +285,7 @@ describe('feature GamePage', () => {
       mockStore.state.gameStore.currentProgram = null;
       wrapper = mount(GamePage);
 
-      const actionButtons = wrapper.find('.flex.justify-end.items-center.gap-4');
+      const actionButtons = wrapper.find('[data-testid="game-action-btns"]');
       expect(actionButtons.exists()).toBe(false);
     });
 
@@ -312,15 +312,25 @@ describe('feature GamePage', () => {
     it('should have correct container classes', () => {
       wrapper = mount(GamePage);
 
-      const container = wrapper.find('.container.h-full.mx-auto.px-4.py-6.flex.flex-col.gap-4');
-      expect(container.exists()).toBe(true);
+      const container = wrapper.find('[data-testid="game-page-container"]');
+      expect(container.classes()).toContain('container');
+      expect(container.classes()).toContain('h-full');
+      expect(container.classes()).toContain('mx-auto');
+      expect(container.classes()).toContain('px-4');
+      expect(container.classes()).toContain('py-6');
+      expect(container.classes()).toContain('flex');
+      expect(container.classes()).toContain('flex-col');
+      expect(container.classes()).toContain('gap-4');
     });
 
     it('should have correct grid layout classes', () => {
       wrapper = mount(GamePage);
 
-      const grid = wrapper.find('.grid.grid-cols-1.lg\\:grid-cols-3.gap-4');
-      expect(grid.exists()).toBe(true);
+      const grid = wrapper.find('[data-testid="game-grid"]');
+      expect(grid.classes()).toContain('grid');
+      expect(grid.classes()).toContain('grid-cols-1');
+      expect(grid.classes()).toContain('lg:grid-cols-3');
+      expect(grid.classes()).toContain('gap-4');
     });
 
     it('should apply correct styles to GameHorseList', () => {
@@ -364,8 +374,8 @@ describe('feature GamePage', () => {
     it('should maintain proper component hierarchy', () => {
       wrapper = mount(GamePage);
 
-      const container = wrapper.find('.container');
-      const grid = wrapper.find('.grid');
+      const container = wrapper.find('[data-testid="game-page-container"]');
+      const grid = wrapper.find('[data-testid="game-grid"]');
       const horseList = wrapper.findComponent(GameHorseList);
       const gameTrack = wrapper.findComponent(GameTrack);
       const gameProgram = wrapper.findComponent(GameProgram);

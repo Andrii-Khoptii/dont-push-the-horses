@@ -115,7 +115,7 @@ describe('feature GameProgramTableRow', () => {
         props: defaultProps,
       });
 
-      expect(wrapper.find('.mock-ui-table-row').exists()).toBe(true);
+      expect(wrapper.find('[data-testid="program-table-row"]').exists()).toBe(true);
     });
 
     it('should display horse ID with correct color', () => {
@@ -123,7 +123,7 @@ describe('feature GameProgramTableRow', () => {
         props: defaultProps,
       });
 
-      const horseId = wrapper.find('span[style*="color: rgb(255, 0, 0)"]');
+      const horseId = wrapper.find('[data-testid="horse-id-span"]');
       expect(horseId.exists()).toBe(true);
       expect(horseId.text()).toBe('1');
     });
@@ -453,7 +453,7 @@ describe('feature GameProgramTableRow', () => {
         },
       });
 
-      const betButton = wrapper.find('.mock-ui-button');
+      const betButton = wrapper.find('[data-testid="bet-button"]');
       expect(betButton.exists()).toBe(true);
       expect(betButton.text()).toBe('Bet');
     });
@@ -471,7 +471,7 @@ describe('feature GameProgramTableRow', () => {
         },
       });
 
-      const betButton = wrapper.find('.mock-ui-button');
+      const betButton = wrapper.find('[data-testid="bet-button"]');
       expect(betButton.exists()).toBe(false);
     });
 
@@ -510,7 +510,7 @@ describe('feature GameProgramTableRow', () => {
         },
       });
 
-      const betButton = wrapper.find('.mock-ui-button');
+      const betButton = wrapper.find('[data-testid="bet-button"]');
       await betButton.trigger('click');
 
       expect(mockStore.dispatch).toHaveBeenCalledWith('updateBalance', 900);
@@ -564,7 +564,7 @@ describe('feature GameProgramTableRow', () => {
         },
       });
 
-      const placeCircle = wrapper.find('.w-8.h-8.mx-auto.text-primary-foreground.shadow-md.rounded-full');
+      const placeCircle = wrapper.find('[data-testid="place-circle"]');
       expect(placeCircle.exists()).toBe(true);
       expect(placeCircle.text()).toBe('1');
       expect(placeCircle.classes()).toContain('bg-yellow-400');

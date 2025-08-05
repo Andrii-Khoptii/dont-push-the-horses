@@ -20,7 +20,7 @@ const textAlignment = computed(() => {
 </script>
 
 <template>
-  <td class="p-2 md:p-4 align-middle font-medium" :class="textAlignment">
+  <td data-testid="ui-table-td" class="p-2 md:p-4 align-middle font-medium" :class="textAlignment">
     <slot />
   </td>
 </template>

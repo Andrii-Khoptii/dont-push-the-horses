@@ -44,7 +44,7 @@ describe('component UITableSortBy', () => {
     it('should render container div with correct classes', () => {
       const wrapper = mount(UITableSortBy);
 
-      const container = wrapper.find('div');
+      const container = wrapper.find('[data-testid="ui-table-sort-by"]');
       expect(container.exists()).toBe(true);
       expect(container.classes()).toContain('flex');
       expect(container.classes()).toContain('items-center');

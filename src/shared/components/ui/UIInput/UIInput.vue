@@ -15,6 +15,7 @@ const model = defineModel();
 
 <template>
   <input
+    data-testid="ui-input"
     v-model="model"
     :disabled="disabled"
     :placeholder="placeholder"

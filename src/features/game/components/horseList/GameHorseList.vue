@@ -4,11 +4,13 @@ import GameHorseListTable from './table/GameHorseListTable.vue';
 </script>
 
 <template>
-  <UICard class="w-full" :padding="false">
+  <UICard data-testid="horse-list-card" class="w-full" :padding="false">
     <template #header>
       Horse List (1-20)
     </template>
-    <GameHorseListTable />
+    <div data-testid="horse-list-table-container">
+      <GameHorseListTable />
+    </div>
   </UICard>
 </template>
 

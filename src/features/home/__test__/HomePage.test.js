@@ -136,10 +136,10 @@ describe('feature HomePage', () => {
   describe('css classes', () => {
     it('applies correct classes to main elements', () => {
       const card = wrapper.findComponent({ name: 'UICard' });
-      const title = wrapper.find('h1');
-      const description = wrapper.find('p');
+      const title = wrapper.find('[data-testid="home-page-title"]');
+      const description = wrapper.find('[data-testid="home-page-description"]');
       const input = wrapper.findComponent({ name: 'UIInput' });
-      const buttonContainer = wrapper.find('.flex');
+      const buttonContainer = wrapper.find('[data-testid="home-page-button-container"]');
 
       expect(card.classes()).toContain('mt-32');
       expect(card.classes()).toContain('max-w-[90%]');
@@ -181,8 +181,8 @@ describe('feature HomePage', () => {
 
   describe('accessibility', () => {
     it('has proper semantic structure', () => {
-      const title = wrapper.find('h1');
-      const description = wrapper.find('p');
+      const title = wrapper.find('[data-testid="home-page-title"]');
+      const description = wrapper.find('[data-testid="home-page-description"]');
       const input = wrapper.findComponent({ name: 'UIInput' });
       const buttons = wrapper.findAllComponents({ name: 'UIButton' });
 

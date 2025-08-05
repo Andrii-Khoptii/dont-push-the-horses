@@ -16,9 +16,9 @@ const programList = computed(() => {
     <template #header>
       Race Program
     </template>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div data-testid="program-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div v-for="program in programList" :key="program.lap" class="flex flex-col border">
-        <div class="bg-primary text-primary-foreground px-3 py-1">
+        <div data-testid="program-info" class="bg-primary text-primary-foreground px-3 py-1">
           {{ program.lap }}st Lap {{ program.distance }}m
         </div>
         <div class="overflow-auto">

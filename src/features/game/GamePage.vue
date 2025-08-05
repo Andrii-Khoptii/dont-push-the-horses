@@ -39,8 +39,8 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <div class="container h-full mx-auto px-4 py-6 flex flex-col gap-4">
-    <div v-if="currentProgram" class="flex justify-end items-center gap-4">
+  <div data-testid="game-page-container" class="container h-full mx-auto px-4 py-6 flex flex-col gap-4">
+    <div v-if="currentProgram" data-testid="game-action-btns" class="flex justify-end items-center gap-4">
       <UIButton
         variant="outline"
         :disabled="isProgramRunning"
@@ -53,7 +53,7 @@ onBeforeMount(async () => {
       </UIButton>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div data-testid="game-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-4">
       <GameHorseList class="max-w-full" :style="`max-height: ${trackHeight}px`" />
       <GameTrack class="lg:col-span-2" :style="`max-height: ${trackHeight}px`" />
     </div>

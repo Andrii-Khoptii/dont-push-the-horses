@@ -59,7 +59,7 @@ describe('feature GameHorseListTableRow', () => {
         props: defaultProps,
       });
 
-      expect(wrapper.find('.mock-ui-table-row').exists()).toBe(true);
+      expect(wrapper.find('[data-testid="horse-list-table-row"]').exists()).toBe(true);
     });
 
     it('should display horse ID', () => {
@@ -103,7 +103,7 @@ describe('feature GameHorseListTableRow', () => {
         props: defaultProps,
       });
 
-      const colorSpan = wrapper.find('span[style*="color: rgb(255, 0, 0)"]');
+      const colorSpan = wrapper.find('[data-testid="horse-color-span"]');
       expect(colorSpan.exists()).toBe(true);
       expect(colorSpan.text()).toBe('Red');
     });
@@ -153,7 +153,7 @@ describe('feature GameHorseListTableRow', () => {
         },
       });
 
-      const colorSpan = wrapper.find('span[style*="color: rgb(0, 0, 255)"]');
+      const colorSpan = wrapper.find('[data-testid="horse-color-span"]');
       expect(colorSpan.exists()).toBe(true);
       expect(colorSpan.text()).toBe('Blue');
     });
@@ -284,7 +284,7 @@ describe('feature GameHorseListTableRow', () => {
         props: defaultProps,
       });
 
-      const tableRow = wrapper.find('.mock-ui-table-row');
+      const tableRow = wrapper.find('[data-testid="horse-list-table-row"]');
       expect(tableRow.exists()).toBe(true);
     });
 
@@ -302,7 +302,7 @@ describe('feature GameHorseListTableRow', () => {
         props: defaultProps,
       });
 
-      const colorSpan = wrapper.find('span[style*="color:"]');
+      const colorSpan = wrapper.find('[data-testid="horse-color-span"]');
       expect(colorSpan.exists()).toBe(true);
       expect(colorSpan.attributes('style')).toContain('color: rgb(255, 0, 0)');
     });

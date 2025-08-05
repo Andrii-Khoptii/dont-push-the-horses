@@ -58,10 +58,9 @@ describe('component UITable', () => {
         props: { tableData: mockTableData },
       });
 
-      const table = wrapper.find('table');
-      expect(table.exists()).toBe(true);
-      expect(table.classes()).toContain('w-full');
-      expect(table.classes()).toContain('text-sm');
+      expect(wrapper.find('[data-testid="ui-table"]').exists()).toBe(true);
+      expect(wrapper.find('[data-testid="ui-table"]').classes()).toContain('w-full');
+      expect(wrapper.find('[data-testid="ui-table"]').classes()).toContain('text-sm');
     });
 
     it('should render thead with border class', () => {

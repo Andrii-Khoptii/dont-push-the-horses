@@ -20,14 +20,15 @@ const contentHeight = computed(() => {
 
 <template>
   <div
+    data-testid="ui-card"
     class="rounded-lg border text-card-foreground shadow-sm max-w-2xl mx-auto bg-background/95 backdrop-blur text-center"
   >
-    <div v-if="$slots.header" ref="cardHeaderRef" class="p-6 bg-gradient-winner">
-      <h3 class="text-2xl font-semibold leading-none tracking-tight text-accent-foreground">
+    <div v-if="$slots.header" ref="cardHeaderRef" data-testid="ui-card-header" class="p-6 bg-gradient-winner">
+      <h3 data-testid="ui-card-header-title" class="text-2xl font-semibold leading-none tracking-tight text-accent-foreground">
         <slot name="header" />
       </h3>
     </div>
-    <div class="overflow-auto" :class="[padding ? 'p-6 md:p-12' : '']" :style="`height: ${contentHeight};`">
+    <div data-testid="ui-card-content" class="overflow-auto" :class="[padding ? 'p-6 md:p-12' : '']" :style="`height: ${contentHeight};`">
       <slot />
     </div>
   </div>

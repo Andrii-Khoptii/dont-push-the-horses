@@ -11,7 +11,7 @@ defineProps({
 </script>
 
 <template>
-  <table class="w-full text-sm">
+  <table data-testid="ui-table" class="w-full text-sm">
     <thead class="border-b">
       <UITableRow>
         <UITableTh

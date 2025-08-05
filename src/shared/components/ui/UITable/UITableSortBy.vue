@@ -21,7 +21,7 @@ function sort(direction) {
 </script>
 
 <template>
-  <div class="flex items-center ml-0.5 cursor-pointer">
+  <div data-testid="ui-table-sort-by" class="flex items-center ml-0.5 cursor-pointer">
     <LucideArrowUp
       v-if="active === 'asc'"
       size="14"

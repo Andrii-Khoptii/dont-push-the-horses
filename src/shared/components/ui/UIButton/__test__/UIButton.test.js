@@ -13,7 +13,17 @@ describe('component UIButton', () => {
   describe('rendering', () => {
     it('renders button element', () => {
       const wrapper = createWrapper();
-      expect(wrapper.find('button').exists()).toBe(true);
+      const button = wrapper.find('[data-testid="ui-button"]');
+      expect(button.classes()).toContain('inline-flex');
+      expect(button.classes()).toContain('cursor-pointer');
+      expect(button.classes()).toContain('items-center');
+      expect(button.classes()).toContain('justify-center');
+      expect(button.classes()).toContain('gap-1');
+      expect(button.classes()).toContain('whitespace-nowrap');
+      expect(button.classes()).toContain('rounded-md');
+      expect(button.classes()).toContain('text-sm');
+      expect(button.classes()).toContain('font-medium');
+      expect(button.classes()).toContain('transition-colors');
     });
 
     it('renders slot content', () => {
@@ -51,7 +61,7 @@ describe('component UIButton', () => {
   describe('cSS classes', () => {
     it('applies base classes', () => {
       const wrapper = createWrapper();
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('inline-flex');
       expect(button.classes()).toContain('cursor-pointer');
       expect(button.classes()).toContain('items-center');
@@ -68,7 +78,7 @@ describe('component UIButton', () => {
 
     it('applies primary variant classes by default', () => {
       const wrapper = createWrapper();
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('bg-primary');
       expect(button.classes()).toContain('text-primary-foreground');
       expect(button.classes()).toContain('hover:enabled:bg-primary/90');
@@ -76,7 +86,7 @@ describe('component UIButton', () => {
 
     it('applies secondary variant classes', () => {
       const wrapper = createWrapper({ variant: 'secondary' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('bg-secondary');
       expect(button.classes()).toContain('text-secondary-foreground');
       expect(button.classes()).toContain('hover:enabled:bg-secondary/80');
@@ -84,7 +94,7 @@ describe('component UIButton', () => {
 
     it('applies foreground variant classes', () => {
       const wrapper = createWrapper({ variant: 'foreground' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('bg-primary-foreground');
       expect(button.classes()).toContain('border');
       expect(button.classes()).toContain('text-primary');
@@ -93,7 +103,7 @@ describe('component UIButton', () => {
 
     it('applies destructive variant classes', () => {
       const wrapper = createWrapper({ variant: 'destructive' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('bg-destructive');
       expect(button.classes()).toContain('text-destructive-foreground');
       expect(button.classes()).toContain('hover:enabled:bg-destructive/90');
@@ -101,7 +111,7 @@ describe('component UIButton', () => {
 
     it('applies outline variant classes', () => {
       const wrapper = createWrapper({ variant: 'outline' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('border');
       expect(button.classes()).toContain('border-input');
       expect(button.classes()).toContain('bg-transparent');
@@ -111,14 +121,14 @@ describe('component UIButton', () => {
 
     it('applies ghost variant classes', () => {
       const wrapper = createWrapper({ variant: 'ghost' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('hover:enabled:bg-accent');
       expect(button.classes()).toContain('hover:enabled:text-accent-foreground');
     });
 
     it('applies link variant classes', () => {
       const wrapper = createWrapper({ variant: 'link' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('text-primary');
       expect(button.classes()).toContain('underline-offset-4');
       expect(button.classes()).toContain('hover:enabled:underline');
@@ -126,7 +136,7 @@ describe('component UIButton', () => {
 
     it('applies md size classes by default', () => {
       const wrapper = createWrapper();
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('h-10');
       expect(button.classes()).toContain('px-4');
       expect(button.classes()).toContain('py-2');
@@ -134,7 +144,7 @@ describe('component UIButton', () => {
 
     it('applies sm size classes', () => {
       const wrapper = createWrapper({ size: 'sm' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('h-9');
       expect(button.classes()).toContain('rounded-md');
       expect(button.classes()).toContain('px-3');
@@ -142,7 +152,7 @@ describe('component UIButton', () => {
 
     it('applies lg size classes', () => {
       const wrapper = createWrapper({ size: 'lg' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('h-11');
       expect(button.classes()).toContain('rounded-md');
       expect(button.classes()).toContain('px-8');
@@ -150,7 +160,7 @@ describe('component UIButton', () => {
 
     it('applies icon size classes', () => {
       const wrapper = createWrapper({ size: 'icon' });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.classes()).toContain('h-10');
       expect(button.classes()).toContain('w-10');
     });
@@ -159,13 +169,13 @@ describe('component UIButton', () => {
   describe('disabled state', () => {
     it('applies disabled attribute when disabled prop is true', () => {
       const wrapper = createWrapper({ disabled: true });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.attributes('disabled')).toBeDefined();
     });
 
     it('does not apply disabled attribute when disabled prop is false', () => {
       const wrapper = createWrapper({ disabled: false });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
       expect(button.attributes('disabled')).toBeUndefined();
     });
   });
@@ -173,7 +183,7 @@ describe('component UIButton', () => {
   describe('events', () => {
     it('emits click event when clicked', async () => {
       const wrapper = createWrapper();
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
 
       await button.trigger('click');
 
@@ -182,7 +192,7 @@ describe('component UIButton', () => {
 
     it('does not emit click event when disabled', async () => {
       const wrapper = createWrapper({ disabled: true });
-      const button = wrapper.find('button');
+      const button = wrapper.find('[data-testid="ui-button"]');
 
       await button.trigger('click');
 

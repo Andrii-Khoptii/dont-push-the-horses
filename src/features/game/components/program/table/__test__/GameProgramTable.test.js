@@ -70,7 +70,7 @@ describe('feature GameProgramTable', () => {
         props: defaultProps,
       });
 
-      expect(wrapper.find('.mock-ui-table').exists()).toBe(true);
+      expect(wrapper.findComponent({ name: 'UITable' }).exists()).toBe(true);
     });
 
     it('should render GameProgramTableRow components for each horse', () => {
