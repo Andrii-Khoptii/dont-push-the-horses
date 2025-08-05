@@ -38,7 +38,7 @@ function fieldDirection(fieldName, sort) {
       {{ column.title }}
 
       <UITableSortBy
-        v-if="column.isSort"
+        v-if="column.isSort && sort && sortFunction"
         :active="fieldDirection(column.id, sort)"
         @sort-asc="sortFunction(column.id, 'asc')"
         @sort-desc="sortFunction(column.id, 'desc')"

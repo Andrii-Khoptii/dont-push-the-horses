@@ -8,12 +8,15 @@ const props = defineProps({
 const emit = defineEmits(['sortAsc', 'sortDesc']);
 
 function sort(direction) {
-  if (!props.active) {
-    emit(direction);
-    return;
+  if (direction === 'sort-asc') {
+    return props.active ? emit('sortDesc') : emit('sortAsc');
   }
 
-  direction === 'sort-asc' ? emit('sortDesc') : emit('sortAsc');
+  if (direction === 'sort-desc') {
+    return props.active ? emit('sortAsc') : emit('sortDesc');
+  }
+
+  return emit('sortAsc');
 }
 </script>
 

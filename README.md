@@ -1,6 +1,6 @@
 # 🐎 Don't Push the Horses
 
-> *A thrilling horse racing simulation built with Vue 3*
+> _A thrilling horse racing simulation built with Vue 3_
 
 Experience the excitement of horse racing from the comfort of your browser! Watch majestic horses thunder down the track, place your bets, and feel the rush of victory in this immersive racing simulation.
 
@@ -60,16 +60,31 @@ npm run lint
 npm run lint:fix
 ```
 
+### Testing
+
+```bash
+# Run Vitest
+npm run test
+
+# Run Vitest in browser
+npm run test:ui
+
+# Get % of test coverage
+npm run test:coverage
+```
+
 ## ⚙️ Development Setup
 
 This project uses a carefully curated development environment:
 
 ### Code Quality
+
 - **ESLint** with Vue-specific plugins
 - **@antfu/eslint-config** for consistent code style
 - ⚠️ **Important**: Disable Prettier in your editor to avoid conflicts with ESLint
 
 ### Recommended VS Code Extensions
+
 - Vue Language Features (Volar)
 - ESLint
 - Tailwind CSS IntelliSense
@@ -125,7 +140,7 @@ src/
 │   │
 │   └──home/                # Home page feature
 │       ├── router/         # Home routing
-│       └── HomePage.vue    # Main game page
+│       └── HomePage.vue    # Home page
 │
 ├── layouts/
 │   ├── components/          # Layout components
@@ -134,19 +149,21 @@ src/
 │
 ├── router/                  # Main app routing
 └── shared/
-    ├── assets/
-    │   ├── images/         # Image resources
-    │   └── styles/         # Global styles
-    ├── components/ui/      # Reusable UI components
-    ├── composables/        # Shared composition functions
-    ├── store/              # Global state management
-    └── utils/              # Utility functions
+│   ├── assets/
+│   │   ├── images/         # Image resources
+│   │   └── styles/         # Global styles
+│   ├── components/ui/      # Reusable UI components
+│   ├── composables/        # Shared composition functions
+│   ├── store/              # Global state management
+│   └── utils/              # Utility functions
+│
+├── test/                   # Vitest setup and utils
 ```
 
 ## 🎮 How to Play
 
 1. **Choose Your Horses** - Select which horses you think will win
-2. **Place Your Bets** - Decide how much you want to wager
+2. **Place Your Bets** - Wager on your favorite
 3. **Watch the Race** - Enjoy the thrilling simulation as horses compete
 4. **Collect Winnings** - Celebrate your victories and learn from defeats
 
@@ -154,4 +171,4 @@ src/
 
 **Remember**: In horse racing, as in life, don't push the horses! Let them run at their natural pace and enjoy the journey. 🏇
 
-*Happy racing!* 🏁
+_Happy racing!_ 🏁

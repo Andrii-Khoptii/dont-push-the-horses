@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-background: hsl(58 24% 96%);
@@ -7,33 +7,33 @@
   --color-card-foreground: hsl(155 25% 15%);
   --color-popover: hsl(60 30% 98%);
   --color-popover-foreground: hsl(155 25% 15%);
-  
+
   /* Racing Green - Primary Brand Color */
   --color-primary: hsl(155 45% 25%);
   --color-primary-foreground: hsl(60 30% 98%);
   --color-primary-glow: hsl(155 40% 35%);
-  
+
   /* Champagne Gold - Winner's Circle */
   --color-secondary: hsl(48 85% 88%);
   --color-secondary-foreground: hsl(155 45% 25%);
-  
+
   /* Track Muted Tones */
   --color-muted: hsl(50 20% 92%);
   --color-muted-foreground: hsl(155 15% 45%);
-  
+
   /* Golden Accent */
   --color-accent: hsl(45 90% 75%);
   --color-accent-foreground: hsl(155 45% 25%);
-  
+
   /* Alert/Danger for Racing Alerts */
   --color-destructive: hsl(0 84% 60%);
   --color-destructive-foreground: hsl(60 30% 98%);
-  
+
   /* Elegant Borders and Inputs */
   --color-border: hsl(50 15% 85%);
   --color-input: hsl(50 15% 90%);
   --color-ring: hsl(155 45% 25%);
-  
+
   /* Sidebar Colors */
   --color-sidebar: hsl(0 0% 98%);
   --color-sidebar-foreground: hsl(240 5.3% 26.1%);
@@ -43,25 +43,25 @@
   --color-sidebar-accent-foreground: hsl(240 5.9% 10%);
   --color-sidebar-border: hsl(220 13% 91%);
   --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
-  
+
   /* Background Images/Gradients */
   --background-image-gradient-racing: linear-gradient(135deg, var(--color-primary), var(--color-primary-glow));
   --background-image-gradient-winner: linear-gradient(135deg, var(--color-accent), var(--color-secondary));
   --background-image-gradient-track: linear-gradient(180deg, var(--color-background), var(--color-muted));
-  
+
   /* Border Radius */
   --radius: 0.5rem;
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-  
+
   /* Transition Durations */
   --duration-racing: 300ms;
   --duration-fast: 150ms;
-  
+
   /* Transition Timing Functions */
   --ease-racing: cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Keyframes for animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
